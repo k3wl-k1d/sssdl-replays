@@ -15,21 +15,85 @@
     }
     h1 { color: #40576A; }
     h2 { color: #6688AA; border-bottom: 2px solid #6688AA; padding-bottom: 4px; }
-    .replay-list { list-style: none; padding: 0; }
-    .replay-list li {
+    
+    /* --- Tab Navigation Styles --- */
+    .tab-container {
+      display: flex;
+      border-bottom: 2px solid #6688AA;
+      margin-bottom: 20px;
+      gap: 4px;
+    }
+    .tab-button {
+      background-color: transparent;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #6688AA;
+      border-radius: 6px 6px 0 0;
+      transition: background-color 0.2s, color 0.2s;
+    }
+    .tab-button:hover {
+      background-color: #e0e8f0;
+    }
+    .tab-button.active {
+      background-color: #6688AA;
+      color: white;
+    }
+    .tab-content {
+      display: none;
+      animation: fadeEffect 0.5s;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes fadeEffect {
+      from {opacity: 0;}
+      to {opacity: 1;}
+    }
+
+    /* --- List Styles --- */
+    .replay-list, .playoffs { list-style: none; padding: 0; }
+    .replay-list li, .playoffs li {
       background: white;
       border: 1px solid #AAAAAA;
       border-radius: 6px;
       margin: 8px 0;
       padding: 12px 16px;
     }
-    .replay-list a {
+    .replay-list a, .playoffs a {
       text-decoration: none;
       color: #2288CC;
       font-weight: bold;
     }
-    .replay-list a:hover { text-decoration: underline; }
+    .replay-list a:hover, .playoffs a:hover { text-decoration: underline; }
     .meta { font-size: 0.85em; color: #666; margin-top: 4px; }
+
+    /* --- Spoiler Styles --- */
+    details {
+      cursor: pointer;
+    }
+    summary {
+      font-weight: bold;
+      color: #d9534f;
+      padding: 4px 0;
+      user-select: none;
+      list-style-type: '⚠️ '; /* Adds a neat icon before the spoiler text */
+    }
+    summary:hover {
+      color: #c9302c;
+    }
+    /* When details is open, add a separator line between spoiler text and link */
+    details[open] summary {
+      border-bottom: 1px dashed #ccc;
+      margin-bottom: 12px;
+      padding-bottom: 8px;
+    }
+    .playoffs details a {
+      display: inline-block;
+    }
   </style>
 </head>
 <body>
@@ -37,496 +101,582 @@
   <h1>SSSDL Replays</h1>
   <p>Click any match below to view the full replay in your browser.</p>
 
-  <h2>Week 1</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-04-joemany-frezemn.html" target="_blank">
-        Joe Many vs Frezemn
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-05-emolgatheflyingrat-adunka.html" target="_blank">
-        EmolgaTheFlyingRat vs Adunka
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-05-jafen-samangos.html" target="_blank">
-        Jafen vs Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-06-logmonster-ebastia12.html" target="_blank">
-        Logmonster vs Ebastia12
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-07-tonytoucannon-timbejon.html" target="_blank">
-        Tony Toucannon vs Timbejon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-09-wisestream-mcgriddlesoe.html" target="_blank">
-        Wisestream vs McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-10-fletchhead-coachwisdom36.html" target="_blank">
-        FletchHead vs CoachWisdom36
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-10-shirmp-idontfreakinknow.html" target="_blank">
-        Shirmp vs idontfreakinknow
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-  
-  <h2>Week 2</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-12-frezemn-ebastia12.html" target="_blank">
-        Frezemn vs Ebastia12
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-12-shirmp-adunka.html" target="_blank">
-        Shirmp vs. Adunka
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-12-logmonster-emolgatheflyingrat.html" target="_blank">
-        Logmonster vs EmolgaTheFlyingRat
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-13-jafen-idontfreakinknow.html" target="_blank">
-        Jafen vs. idontfreakinknow
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsCustomGame-2026-05-14-timbejon-samangos.html" target="_blank">
-        Timbejon vs. Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-14-joemany-fletchhead.html" target="_blank">
-        Joe Many vs. FletchHead
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-18-wisestream-coachwisdom36.html" target="_blank">
-        Wisestream vs. CoachWisdom36
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-20-tonytoucannon-mcgriddlesoe.html" target="_blank">
-        Tony Toucannon vs. McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
+  <!-- TAB NAVIGATION -->
+  <div class="tab-container">
+    <button class="tab-button active" onclick="openSeason(event, 'season8')">Season 1</button>
+    <button class="tab-button" onclick="openSeason(event, 'season9')">Season 2</button>
+  </div>
 
-  <h2>Week 3</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-19-idontfreakinknow-fletchhead.html" target="_blank">
-        idontfreakinknow vs FletchHead
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-21-emolgatheflyingrat-wisestream.html" target="_blank">
-        EmolgaTheFlyingRat vs. Wisestream
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-21-coachwisdom36-ebastia12.html" target="_blank">
-        CoachWisdom36 vs Ebastia12
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-21-adunka-timbejon.html" target="_blank">
-        Adunka vs. Timbejon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-        <li>
-      <a href="Gen9ChampionsDraft-2026-05-22-shirmp-tonytoucannon.html" target="_blank">
-        Shirmp vs. Tony Toucannon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-24-jafen-mcgriddlesoe.html" target="_blank">
-        Jafen vs. McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-24-logmonster-frezemn.html" target="_blank">
-        Logmonster vs. Frezemn
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-24-joemany-samangos.html" target="_blank">
-        Joe Many vs. Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-
-  <h2>Week 4</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-26-ebastia12-fletchhead.html" target="_blank">
-        Ebastia12 vs. FletchHead
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-27-jafen-logmonster.html" target="_blank">
-        Jafen vs. Logmonster
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-28-emolgatheflyingrat-tonytoucannon.html" target="_blank">
-        EmolgaTheFlyingRat vs. Tony Toucannon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-28-idontfreakinknow-adunka.html" target="_blank">
-        idontfreakinknow vs. Adunka
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-28-frezemn-timbejon.html" target="_blank">
-        Frezemn vs. Timbejon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-30-coachwisdom36-samangos.html" target="_blank">
-        CoachWisdom36 vs. Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-31-shirmp-mcgriddlesoe.html" target="_blank">
-        Shrimp vs. McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-05-31-wisestream-joemany.html" target="_blank">
-        Wisestream vs. Joe Many
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-  
-  <h2>Week 5</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-04-ebastia12-samangos.html" target="_blank">
-        Ebastia12 vs. Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-04-idontfreakinknow-frezemn.html" target="_blank">
-        idontfreakinknow vs. Frezemn
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-05-tonytoucannon-wisestream.html" target="_blank">
-        Tony Toucannon vs. Wisestream
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-04-logmonster-adunka.html" target="_blank">
-        Logmonster vs. Adunka
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-05-jafen-timbejon.html" target="_blank">
-        Jafen vs. Timbejon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-06-coachwisdom36-joemany.html" target="_blank">
-        CoachWisdom36 vs. Joe Many
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-06-shirmp-fletchhead.html" target="_blank">
-        Shirmp vs. FletchHead
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-07-emolgatheflyingrat-mcgriddlesoe.html" target="_blank">
-        EmolgaTheFlyingRat vs. McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-  
-  <h2>Week 6</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-10-shirmp-emolgatheflyingrat.html" target="_blank">
-        Shirmp vs. EmolgaTheFlyingRat
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-11-jafen-adunka.html" target="_blank">
-        Jafen vs. Adunka
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-11-fletchhead-timbejon.html" target="_blank">
-        FletchHead vs. Timbejon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-11-tonytoucannon-logmonster.html" target="_blank">
-        Tony Toucannon vs. Logmonster
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-13-wisestream-samangos.html" target="_blank">
-        Wisestream vs. Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-14-ebastia12-joemany.html" target="_blank">
-        Ebastia12 vs. Joe Many
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-14-frezemn-mcgriddlesoe.html" target="_blank">
-        Frezemn vs. McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-25-coachwisdom36-idontfreakinknow.html" target="_blank">
-        CoachWisdom36 vs. idontfreakinknow
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-
-  <h2>Week 7</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-15-idontfreakinknow-joemany.html" target="_blank">
-        idontfreakinknow vs. Joe Many
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-16-fletchhead-tonytoucannon.html" target="_blank">
-        FletchHead vs. Tony Toucannon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-16-ebastia12-timbejon.html" target="_blank">
-        Ebastia12 vs. Timbejon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-19-emolgatheflyingrat-coachwisdom36.html" target="_blank">
-        EmolgaTheFlyingRat vs. CoachWisdom36
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-21-adunka-mcgriddlesoe.html" target="_blank">
-        Adunka vs. McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-22-wisestream-logmonster.html" target="_blank">
-        Wisestream vs. Logmonster
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-22-frezemn-jafen.html" target="_blank">
-        Frezemn vs. Jafen
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-27-shirmp-samangos.html" target="_blank">
-        Shirmp vs. Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-
-  <h2>Week 8</h2>
-  <ul class="replay-list">
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-16-ebastia12-emolgatheflyingrat.html" target="_blank">
-        Ebastia12 vs. EmolgaTheFlyingRat
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-25-joemany-timbejon.html" target="_blank">
-        Joe Many vs. Timbejon
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-25-jafen-coachwisdom36.html" target="_blank">
-        CoachWisdom36 vs. Jafen
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-26-tonytoucannon-adunka.html" target="_blank">
-        Tony Toucannon vs. Adunka
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-28-wisestream-idontfreakinknow.html" target="_blank">
-        Wisestream vs. idontfreakinknow
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-28-fletchhead-mcgriddlesoe.html" target="_blank">
-        FletchHead vs. McGriddlesoe
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-28-frezemn-samangos.html" target="_blank">
-        Frezemn vs. Samangos
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <a href="Gen9ChampionsDraft-2026-06-30-shirmp-logmonster.html" target="_blank">
-        Shirmp vs. Logmonster
-      </a>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-
-  <h2>Quarterfinals</h2>
-  <ul class="playoffs">
-    <li>
-      <details>
-        <summary>SPOILERS</summary>
-        <a href="Gen9ChampionsDraft-2026-07-04-fletchhead-samangos.html" target="_blank">
-          FletchHead vs. Samangos
+  <!-- SEASON 8 CONTENT -->
+  <div id="season8" class="tab-content active">
+    <h2>Week 1</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-04-joemany-frezemn.html" target="_blank">
+          Joe Many vs Frezemn
         </a>
-      </details>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <details>
-        <summary>SPOILERS</summary>
-        <a href="Gen9ChampionsDraft-2026-07-06-wisestream-logmonster.html" target="_blank">
-          Wisestream vs. Logmonster
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-05-emolgatheflyingrat-adunka.html" target="_blank">
+          EmolgaTheFlyingRat vs Adunka
         </a>
-      </details>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <details>
-        <summary>SPOILERS</summary>
-        <a href="Gen9ChampionsDraft-2026-07-10-frezemn-joemany.html" target="_blank">
-          Frezemn vs. Joe Many
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-05-jafen-samangos.html" target="_blank">
+          Jafen vs Samangos
         </a>
-      </details>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <details>
-        <summary>SPOILERS</summary>
-        <a href="Gen9ChampionsDraft-2026-07-11-shirmp-jafen.html" target="_blank">
-          Shirmp vs. Jafen
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-06-logmonster-ebastia12.html" target="_blank">
+          Logmonster vs Ebastia12
         </a>
-      </details>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-07-tonytoucannon-timbejon.html" target="_blank">
+          Tony Toucannon vs Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-09-wisestream-mcgriddlesoe.html" target="_blank">
+          Wisestream vs McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-10-fletchhead-coachwisdom36.html" target="_blank">
+          FletchHead vs CoachWisdom36
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-10-shirmp-idontfreakinknow.html" target="_blank">
+          Shirmp vs idontfreakinknow
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+    
+    <h2>Week 2</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-12-frezemn-ebastia12.html" target="_blank">
+          Frezemn vs Ebastia12
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-12-shirmp-adunka.html" target="_blank">
+          Shirmp vs. Adunka
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-12-logmonster-emolgatheflyingrat.html" target="_blank">
+          Logmonster vs EmolgaTheFlyingRat
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-13-jafen-idontfreakinknow.html" target="_blank">
+          Jafen vs. idontfreakinknow
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsCustomGame-2026-05-14-timbejon-samangos.html" target="_blank">
+          Timbejon vs. Samangos
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-14-joemany-fletchhead.html" target="_blank">
+          Joe Many vs. FletchHead
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-18-wisestream-coachwisdom36.html" target="_blank">
+          Wisestream vs. CoachWisdom36
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-20-tonytoucannon-mcgriddlesoe.html" target="_blank">
+          Tony Toucannon vs. McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
 
-  <h2>Semi-Finals</h2>
-  <ul class="playoffs">
-    <li>
-      <details>
-        <summary>SPOILERS</summary>
-        <a href="Gen9ChampionsDraft-2026-07-19-frezemn-jafen.html" target="_blank">
-          Frezemn vs. Jafen
+    <h2>Week 3</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-19-idontfreakinknow-fletchhead.html" target="_blank">
+          idontfreakinknow vs FletchHead
         </a>
-      </details>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-    <li>
-      <details>
-        <summary>SPOILERS</summary>
-        <a href="Gen9ChampionsDraft-2026-07-19-wisestream-samangos.html" target="_blank">
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-21-emolgatheflyingrat-wisestream.html" target="_blank">
+          EmolgaTheFlyingRat vs. Wisestream
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-21-coachwisdom36-ebastia12.html" target="_blank">
+          CoachWisdom36 vs Ebastia12
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-21-adunka-timbejon.html" target="_blank">
+          Adunka vs. Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+          <li>
+        <a href="Gen9ChampionsDraft-2026-05-22-shirmp-tonytoucannon.html" target="_blank">
+          Shirmp vs. Tony Toucannon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-24-jafen-mcgriddlesoe.html" target="_blank">
+          Jafen vs. McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-24-logmonster-frezemn.html" target="_blank">
+          Logmonster vs. Frezemn
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-24-joemany-samangos.html" target="_blank">
+          Joe Many vs. Samangos
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+
+    <h2>Week 4</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-26-ebastia12-fletchhead.html" target="_blank">
+          Ebastia12 vs. FletchHead
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-27-jafen-logmonster.html" target="_blank">
+          Jafen vs. Logmonster
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-28-emolgatheflyingrat-tonytoucannon.html" target="_blank">
+          EmolgaTheFlyingRat vs. Tony Toucannon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-28-idontfreakinknow-adunka.html" target="_blank">
+          idontfreakinknow vs. Adunka
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-28-frezemn-timbejon.html" target="_blank">
+          Frezemn vs. Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-30-coachwisdom36-samangos.html" target="_blank">
+          CoachWisdom36 vs. Samangos
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-31-shirmp-mcgriddlesoe.html" target="_blank">
+          Shrimp vs. McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-31-wisestream-joemany.html" target="_blank">
+          Wisestream vs. Joe Many
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+    
+    <h2>Week 5</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-04-ebastia12-samangos.html" target="_blank">
+          Ebastia12 vs. Samangos
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-04-idontfreakinknow-frezemn.html" target="_blank">
+          idontfreakinknow vs. Frezemn
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-05-tonytoucannon-wisestream.html" target="_blank">
+          Tony Toucannon vs. Wisestream
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-04-logmonster-adunka.html" target="_blank">
+          Logmonster vs. Adunka
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-05-jafen-timbejon.html" target="_blank">
+          Jafen vs. Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-06-coachwisdom36-joemany.html" target="_blank">
+          CoachWisdom36 vs. Joe Many
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-06-shirmp-fletchhead.html" target="_blank">
+          Shirmp vs. FletchHead
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-07-emolgatheflyingrat-mcgriddlesoe.html" target="_blank">
+          EmolgaTheFlyingRat vs. McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+    
+    <h2>Week 6</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-10-shirmp-emolgatheflyingrat.html" target="_blank">
+          Shirmp vs. EmolgaTheFlyingRat
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-11-jafen-adunka.html" target="_blank">
+          Jafen vs. Adunka
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-11-fletchhead-timbejon.html" target="_blank">
+          FletchHead vs. Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-11-tonytoucannon-logmonster.html" target="_blank">
+          Tony Toucannon vs. Logmonster
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-13-wisestream-samangos.html" target="_blank">
           Wisestream vs. Samangos
         </a>
-      </details>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
-
-  <h2>Finals</h2>
-  <ul class="playoffs">
-    <li>
-      <details>
-        <summary>SPOILERS</summary>
-        <a href="Gen9ChampionsDraft-2026-07-25-jafen-wisestream.html" target="_blank">
-          Jafen vs. Wisestream
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-14-ebastia12-joemany.html" target="_blank">
+          Ebastia12 vs. Joe Many
         </a>
-      </details>
-      <div class="meta">Gen 9 Champions Draft</div>
-    </li>
-  </ul>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-14-frezemn-mcgriddlesoe.html" target="_blank">
+          Frezemn vs. McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-25-coachwisdom36-idontfreakinknow.html" target="_blank">
+          CoachWisdom36 vs. idontfreakinknow
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+
+    <h2>Week 7</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-15-idontfreakinknow-joemany.html" target="_blank">
+          idontfreakinknow vs. Joe Many
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-16-fletchhead-tonytoucannon.html" target="_blank">
+          FletchHead vs. Tony Toucannon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-16-ebastia12-timbejon.html" target="_blank">
+          Ebastia12 vs. Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-19-emolgatheflyingrat-coachwisdom36.html" target="_blank">
+          EmolgaTheFlyingRat vs. CoachWisdom36
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-21-adunka-mcgriddlesoe.html" target="_blank">
+          Adunka vs. McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-22-wisestream-logmonster.html" target="_blank">
+          Wisestream vs. Logmonster
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-22-frezemn-jafen.html" target="_blank">
+          Frezemn vs. Jafen
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-27-shirmp-samangos.html" target="_blank">
+          Shirmp vs. Samangos
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+
+    <h2>Week 8</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-16-ebastia12-emolgatheflyingrat.html" target="_blank">
+          Ebastia12 vs. EmolgaTheFlyingRat
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-25-joemany-timbejon.html" target="_blank">
+          Joe Many vs. Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-25-jafen-coachwisdom36.html" target="_blank">
+          CoachWisdom36 vs. Jafen
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-26-tonytoucannon-adunka.html" target="_blank">
+          Tony Toucannon vs. Adunka
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-28-wisestream-idontfreakinknow.html" target="_blank">
+          Wisestream vs. idontfreakinknow
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-28-fletchhead-mcgriddlesoe.html" target="_blank">
+          FletchHead vs. McGriddlesoe
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-28-frezemn-samangos.html" target="_blank">
+          Frezemn vs. Samangos
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-06-30-shirmp-logmonster.html" target="_blank">
+          Shirmp vs. Logmonster
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+
+    <h2>Quarterfinals</h2>
+    <ul class="playoffs">
+      <li>
+        <details>
+          <summary>SPOILER WARNING - Click to Reveal Match</summary>
+          <a href="Gen9ChampionsDraft-2026-07-04-fletchhead-samangos.html" target="_blank">
+            FletchHead vs. Samangos
+          </a>
+        </details>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <details>
+          <summary>SPOILER WARNING - Click to Reveal Match</summary>
+          <a href="Gen9ChampionsDraft-2026-07-06-wisestream-logmonster.html" target="_blank">
+            Wisestream vs. Logmonster
+          </a>
+        </details>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <details>
+          <summary>SPOILER WARNING - Click to Reveal Match</summary>
+          <a href="Gen9ChampionsDraft-2026-07-10-frezemn-joemany.html" target="_blank">
+            Frezemn vs. Joe Many
+          </a>
+        </details>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <details>
+          <summary>SPOILER WARNING - Click to Reveal Match</summary>
+          <a href="Gen9ChampionsDraft-2026-07-11-shirmp-jafen.html" target="_blank">
+            Shirmp vs. Jafen
+          </a>
+        </details>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+
+    <h2>Semi-Finals</h2>
+    <ul class="playoffs">
+      <li>
+        <details>
+          <summary>SPOILER WARNING - Click to Reveal Match</summary>
+          <a href="Gen9ChampionsDraft-2026-07-19-frezemn-jafen.html" target="_blank">
+            Frezemn vs. Jafen
+          </a>
+        </details>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <details>
+          <summary>SPOILER WARNING - Click to Reveal Match</summary>
+          <a href="Gen9ChampionsDraft-2026-07-19-wisestream-samangos.html" target="_blank">
+            Wisestream vs. Samangos
+          </a>
+        </details>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+
+    <h2>Finals</h2>
+    <ul class="playoffs">
+      <li>
+        <details>
+          <summary>SPOILER WARNING - Click to Reveal Match</summary>
+          <a href="Gen9ChampionsDraft-2026-07-25-jafen-wisestream.html" target="_blank">
+            Jafen vs. Wisestream
+          </a>
+        </details>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- SEASON 9 CONTENT -->
+  <div id="season9" class="tab-content">
+    <h2>Week 1</h2>
+    <ul class="replay-list">
+      <li>
+        <a href="Gen9ChampionsDraft-2026-08-19-ebastia12-timbejon.html" target="_blank">
+          Ebastia12 vs Timbejon
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-08-19-jafen-joemany.html" target="_blank">
+          Jafen vs Joe Many
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-05-05-jafen-samangos.html" target="_blank">
+          Jafen vs Samangos
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-08-21-fletchhead-logmonster.html" target="_blank">
+          FletchHead vs Logmonster
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="Gen9ChampionsDraft-2026-08-21-frezemn-samky.html" target="_blank">
+          Frezemn vs Samky
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="" target="_blank">
+          ___ vs ___
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="" target="_blank">
+          ___ vs ___
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+      <li>
+        <a href="" target="_blank">
+          ___ vs ___
+        </a>
+        <div class="meta">Gen 9 Champions Draft</div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- JS for Tabs -->
+  <script>
+    function openSeason(evt, seasonId) {
+      // Hide all elements with class="tab-content"
+      var tabcontent = document.getElementsByClassName("tab-content");
+      for (var i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+        tabcontent[i].classList.remove("active");
+      }
+
+      // Remove the class "active" from all tab links
+      var tablinks = document.getElementsByClassName("tab-button");
+      for (var i = 0; i < tablinks.length; i++) {
+        tablinks[i].classList.remove("active");
+      }
+
+      // Show the current tab, and add an "active" class to the button that opened the tab
+      document.getElementById(seasonId).style.display = "block";
+      evt.currentTarget.classList.add("active");
+    }
+  </script>
 
 </body>
 </html>
